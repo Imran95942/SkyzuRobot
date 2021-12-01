@@ -22,7 +22,7 @@ def approve(update, context):
     user_id = extract_user(message, args)
     if not user_id:
         message.reply_text(
-            "I don't know who you're talking about, you're going to need to specify a user!",
+            "Я не знаю, о ком вы говорите, вам нужно будет указать пользователя!",
         )
         return ""
     try:
@@ -31,7 +31,7 @@ def approve(update, context):
         return ""
     if member.status in ("administrator", "creator"):
         message.reply_text(
-            "User is already admin - locks, blocklists, and antiflood already don't apply to them.",
+            "Пользователь уже является администратором - блокировки, заблокированные списки и антифлуд к ним уже не применяются.",
         )
         return ""
     if sql.is_approved(message.chat_id, user_id):
@@ -66,7 +66,7 @@ def disapprove(update, context):
     user_id = extract_user(message, args)
     if not user_id:
         message.reply_text(
-            "I don't know who you're talking about, you're going to need to specify a user!",
+            "Я не знаю, о ком вы говорите, вам нужно будет указать пользователя!",
         )
         return ""
     try:
@@ -74,7 +74,7 @@ def disapprove(update, context):
     except BadRequest:
         return ""
     if member.status in ("administrator", "creator"):
-        message.reply_text("This user is an admin, they can't be unapproved.")
+        message.reply_text("Этот пользователь является администратором.")
         return ""
     if not sql.is_approved(message.chat_id, user_id):
         message.reply_text(f"{member.user['first_name']} isn't approved yet!")
@@ -104,7 +104,7 @@ def approved(update, context):
         member = chat.get_member(int(i.user_id))
         msg += f"- `{i.user_id}`: {member.user['first_name']}\n"
     if msg.endswith("approved.\n"):
-        message.reply_text(f"No users are approved in {chat_title}.")
+        message.reply_text(f"Ни один пользователь не одобрен в {chat_title}.")
         return ""
     message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
@@ -118,7 +118,7 @@ def approval(update, context):
     member = chat.get_member(int(user_id))
     if not user_id:
         message.reply_text(
-            "I don't know who you're talking about, you're going to need to specify a user!",
+            "Я не знаю, о ком вы говорите, вам нужно будет указать пользователя!",
         )
         return ""
     if sql.is_approved(message.chat_id, user_id):
@@ -193,17 +193,17 @@ def unapproveall_btn(update: Update, context: CallbackContext):
 
 
 __help__ = """
-Sometimes, you might trust a user not to send unwanted content.
-Maybe not enough to make them admin, but you might be ok with locks, blacklists, and antiflood not applying to them.
+Иногда вы можете быть уверены, что пользователь не рассылает нежелательный контент.
+Может быть, этого недостаточно, чтобы сделать их администратором, но вы можете быть в порядке, если к ним не применяются блокировки, черные списки и антифлуд.
 
-That's what approvals are for - approve of trustworthy users to allow them to send
+Для этого нужны утверждения - одобрение заслуживающих доверия пользователей, чтобы они могли отправлять
 
 *Admin commands:*
-❂ /approval*:* Check a user's approval status in this chat.
-❂ /approve*:* Approve of a user. Locks, blacklists, and antiflood won't apply to them anymore.
-❂ /unapprove*:* Unapprove of a user. They will now be subject to locks, blacklists, and antiflood again.
-❂ /approved*:* List all approved users.
-❂ /unapproveall*:* Unapprove *ALL* users in a chat. This cannot be undone.
+❂ /approval*:* Проверить статус одобрения пользователя в этом чате.
+❂ /approve*:* Утвердить пользователя. Блокировки, черные списки и антифлуд к ним больше не применяются.
+❂ /unapprove*:* Отказ от одобрения пользователя. Теперь они снова будут подвергаться блокировкам, черным спискам и антифлупу.
+❂ /approved*:* Перечислите всех утвержденных пользователей.
+❂ /unapproveall*:* Не одобрять *ВСЕХ* пользователей в чате. Это не может быть отменено.
 """
 
 APPROVE = DisableAbleCommandHandler("approve", approve, run_async=True)
