@@ -159,7 +159,7 @@ def set_flood(update, context) -> str:
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "This command is meant to use in group not in PM",
+                "Эта команда предназначена для использования в группе, а не в личке",
             )
             return ""
         chat_id = update.effective_chat.id
@@ -171,10 +171,10 @@ def set_flood(update, context) -> str:
             sql.set_flood(chat_id, 0)
             if conn:
                 text = message.reply_text(
-                    "Antiflood has been disabled in {}.".format(chat_name),
+                    "Антифлуд был отключен в {}.".format(chat_name),
                 )
             else:
-                text = message.reply_text("Antiflood has been disabled.")
+                text = message.reply_text("Антифлуд был отключен.")
 
         elif val.isdigit():
             amount = int(val)
@@ -185,7 +185,7 @@ def set_flood(update, context) -> str:
                         "Antiflood has been disabled in {}.".format(chat_name),
                     )
                 else:
-                    text = message.reply_text("Antiflood has been disabled.")
+                    text = message.reply_text("Антифлуд был отключен.")
                 return (
                     "<b>{}:</b>"
                     "\n#SETFLOOD"
@@ -199,20 +199,20 @@ def set_flood(update, context) -> str:
             if amount <= 3:
                 send_message(
                     update.effective_message,
-                    "Antiflood must be either 0 (disabled) or number greater than 3!",
+                    "Antiflood должен быть либо 0 (отключен), либо числом больше 3! ",
                 )
                 return ""
             sql.set_flood(chat_id, amount)
             if conn:
                 text = message.reply_text(
-                    "Anti-flood has been set to {} in chat: {}".format(
+                    "Анти-флуд был установлен на {} in chat: {}".format(
                         amount,
                         chat_name,
                     ),
                 )
             else:
                 text = message.reply_text(
-                    "Successfully updated anti-flood limit to {}!".format(amount),
+                    "Лимит защиты от флуда обновлен до {}!".format(amount),
                 )
             return (
                 "<b>{}:</b>"
@@ -226,11 +226,11 @@ def set_flood(update, context) -> str:
             )
 
         else:
-            message.reply_text("Invalid argument please use a number, 'off' or 'no'")
+            message.reply_text("Недействительный аргумент, используйте число, 'off' or 'no'")
     else:
         message.reply_text(
             (
-                "Use `/setflood number` to enable anti-flood.\nOr use `/setflood off` to disable antiflood!."
+                "Используйте /setflood число для включения защиты от спама. \nИли используйте /setflood off для отключения защиты от спама!."
             ),
             parse_mode="markdown",
         )
