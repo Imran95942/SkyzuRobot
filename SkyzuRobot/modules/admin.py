@@ -920,31 +920,28 @@ def button(update: Update, context: CallbackContext) -> str:
 
   
 __help__ = """
-*User Commands*:
-❂ /admins*:* list of admins in the chat
-❂ /pinned*:* to get the current pinned message.
+*Пользовательские команды*:
+ ❍ /admins*:* Список админов в чате.
+ ❍ /pinned*:* чтобы получить текущее закрепленное сообщение.
 
-*The Following Commands are Admins only:* 
-❂ /pin*:* silently pins the message replied to - add `'loud'` or `'notify'` to give notifs to users
-❂ /unpin*:* unpins the currently pinned message
-❂ /invitelink*:* gets invitelink
-❂ /promote*:* promotes the user replied to
-❂ /fullpromote*:* promotes the user replied to with full rights
-❂ /demote*:* demotes the user replied to
-❂ /title <title here>*:* sets a custom title for an admin that the bot promoted
-❂ /admincache*:* force refresh the admins list
-❂ /del*:* deletes the message you replied to
-❂ /purge*:* deletes all messages between this and the replied to message.
-❂ /purge <integer X>*:* deletes the replied message, and X messages following it if replied to a message.
-❂ /setgtitle <text>*:* set group title
-❂ /setgpic*:* reply to an image to set as group photo
-❂ /setdesc*:* Set group description
-❂ /setsticker*:* Set group sticker
+*Следующие команды предназначены только для администраторов.:* 
 
-*Rules*:
-❂ /rules*:* get the rules for this chat.
-❂ /setrules <your rules here>*:* set the rules for this chat.
-❂ /clearrules*:* clear the rules for this chat.
+ ❍ /pin*:* Тихо прикрепляет сообщение, на которое ответил. Добавьте 'loud', 'notify' или 'violent', чтобы отправить уведомление пользователям
+ ❍ /unpin*:* Открепляет закрепленное сообщение
+ ❍ /invitelink*:* Получить пригласительную ссылку группы
+ ❍ /promote*:* Повышает пользователя. Ответьте пользователю или используйте его имя пользователя
+ ❍ /demote*:* Понижает пользователя. Ответьте пользователю или используйте его имя пользователя
+ ❍ /title <title here>*:* устанавливает настраиваемый заголовок для администратора
+ ❍ /setgtitle <newtitle>*:* Устанавливает новый заголовок чата в вашей группе
+ ❍ /setgpic*:* Чтобы установить картинку профиля группы!
+ ❍ /delgpic*:* То же, что и выше, но для удаления изображения профиля группы.
+ ❍ /setsticker*:* В ответ на стикер, который нужно установить как набор групповых стикеров.!
+ ❍ /setdescription <description>*:* Устанавливает новое описание чата в группе.
+ ❍ /admincache*:* принудительно обновите список администраторов
+ ❍ /antispam <on/off/yes/no>*:* Переключит нашу технологию защиты от спама или вернет ваши текущие настройки.
+ ❍ /del*:* удаляет сообщение, на которое вы ответили
+ ❍ /purge*:* удаляет все сообщения между этим и ответным сообщением.
+ ❍ /purge <integer X>*:* удаляет ответное сообщение и X сообщений, следующих за ним.
 """
 
 SET_DESC_HANDLER = CommandHandler("setdesc", set_desc, filters=Filters.chat_type.groups, run_async=True)
