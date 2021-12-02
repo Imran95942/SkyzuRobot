@@ -212,15 +212,15 @@ async def hmm(client, message):
         response = await lunaQuery(
             test, message.from_user.id if message.from_user else 0
         )
-        response = response.replace("Aco", "Skyzu")
-        response = response.replace("aco", "Skyzu")
-        response = response.replace("Luna", "Skyzu")
-        response = response.replace("luna", "Skyzu")
+        response = response.replace("Aco", "BORZ")
+        response = response.replace("Aco", "BORZ")
+        response = response.replace("Luna", "BORZ")
+        response = response.replace("Luna", "BORZ")
         response = response.replace("Я Чеченец", "мой Создатель @isIam07")
         response = response.replace("9", "16")
         response = response.replace("I'm married to my job.", "мой Создатель @isIam07")
-        response = response.replace("I'm single.", "My husband is @skyzu")
-        response = response.replace("Skyzubot.ai", "@isIam07")
+        response = response.replace("I'm single.", "Мой Создатель @isIam07")
+        response = response.replace("BORZ.ai", "@isIam07")
         response = response.replace("I live in San Francisco, California.", "I live in @isIam07.")
         response = response.replace("I made myself", "I was Created by @isIam07")
         response = response.replace(
@@ -306,14 +306,14 @@ async def inuka(client, message):
         "Hi, my friend, what can I do for you today?")
 
     response = await lunaQuery(test, message.from_user.id if message.from_user else 0)
-    response = response.replace("Aco", "Skyzu")
-    response = response.replace("aco", "Skyzu")
-    response = response.replace("Luna", "Skyzu")
-    response = response.replace("luna", "Skyzu")
+    response = response.replace("Aco", "BORZ")
+    response = response.replace("Aco", "BORZ")
+    response = response.replace("Luna", "BORZ")
+    response = response.replace("Luna", "BORZ")
     response = response.replace("Я Чеченец", "мой Создатель @isIam07")
     response = response.replace("9", "16")
     response = response.replace("мой разработчик.", "Мой Создатель @isIam07")
-    response = response.replace("I'm single.", "My husband is @isIam07")
+    response = response.replace("I'm single.", "мой разработчик @isIam07")
     response = response.replace("Skyzubot.ai", "@isIam07")
     response = response.replace("I live in San Francisco, California.", "I live in @isIam07")
     response = response.replace("I made myself", "меня создал @isIam07")
@@ -400,14 +400,14 @@ async def inuka(client, message):
         "Hi, My name is BORZ Nice to meet you.",
         "Hi, my friend, what can I do for you today?")
     response = await lunaQuery(test, message.from_user.id if message.from_user else 0)
-    response = response.replace("Aco", "Skyzu")
-    response = response.replace("aco", "Skyzu")
-    response = response.replace("Luna", "Skyzu")
-    response = response.replace("luna", "Skyzu")
+    response = response.replace("Aco", "BORZ")
+    response = response.replace("Aco", "BORZ")
+    response = response.replace("Luna", "BORZ")
+    response = response.replace("Luna", "BORZ")
     response = response.replace("")
     response = response.replace("I'm married to my job.", "Мой Создатель @isIam07")
     response = response.replace("9", "16") 
-    response = response.replace("I'm single.", "My husband is @skyzu")
+    response = response.replace("I'm single.", "Мой разработчик @isIam07")
     response = response.replace("BORZ.ai", "@isIam07")
     response = response.replace("I live in San Francisco, California.", "I live in @isIam07.")
     response = response.replace("I made myself", "I was Created by @isIam07")
@@ -417,7 +417,7 @@ async def inuka(client, message):
     response = response.replace("Have the control right.", "@isIam07 is my owner.")
     response = response.replace(
             "Hi, my friend, what can I do for you today?",
-            "Hi, My name is Emik Nice to meet you")
+            "Hi, My name is BORZ Nice to meet you")
 
     pro = response
     if not "en" in lan and not lan == "":
@@ -434,7 +434,7 @@ async def inuka(client, message):
 
 
 __help__ = """
-❂ Skyzu AI is the only ai system which can detect & reply upto 200 language's
+❂ BORZ AI is the only ai system which can detect & reply upto 200 language's
 ❂ /chatbot [ON/OFF]: Enables and disables AI Chat mode.
 ❂ /chatbot EN : Enables English only chatbot.
 """
