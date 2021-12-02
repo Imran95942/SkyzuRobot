@@ -82,26 +82,26 @@ async def msg(event):
     caption = f"""<b><u>Information Gathered Successfully</b></u>
 <b>
 Country Name:- {name}
-Alternative Spellings:- {hu}
-Country Area:- {area} square kilometers
-Borders:- {borders}
-Calling Codes:- {call}
-Country's Capital:- {capital}
-Country's currency:- {currencies}
-Country's Flag:- {okie}
-Demonym:- {HmM}
-Country Type:- {EsCoBaR}
-ISO Names:- {iso}
-Languages:- {lMAO}
-Native Name:- {nonive}
-population:- {waste}
-Region:- {reg}
-Sub Region:- {sub}
-Time Zones:- {tom}
-Top Level Domain:- {lanester}
+Альтернативные варианты написания:- {hu}
+Страна Площадь:- {area} квадратных километров
+Границы:- {borders}
+Телефонные коды:- {call}
+Столица страны:- {capital}
+Валюта страны:- {currencies}
+Флаг страны:- {okie}
+Демоним:- {HmM}
+Тип страны:- {EsCoBaR}
+Имена ISO:- {iso}
+Языки:- {lMAO}
+Родное имя:- {nonive}
+численность населения:- {waste}
+Область:- {reg}
+Субрегион:- {sub}
+Часовые пояса:- {tom}
+Домен верхнего уровня:- {lanester}
 wikipedia:- {wiki}</b>
 
-Gathered By Skyzu Robot ✨.</b>
+Gathered By BORZ ✨.</b>
 """
 
     await borg.send_message(
