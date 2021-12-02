@@ -39,7 +39,7 @@ def blacklist(update, context):
         chat_id = update.effective_chat.id
         chat_name = chat.title
 
-    filter_list = "Current blacklisted words in <b>{}</b>:\n".format(chat_name)
+    filter_list = "Текущие слова из черного списка в <b>{}</b>:\n".format(chat_name)
 
     all_blacklisted = sql.get_chat_blacklist(chat_id)
 
@@ -55,12 +55,12 @@ def blacklist(update, context):
 
     split_text = split_message(filter_list)
     for text in split_text:
-        if filter_list == "Current blacklisted words in <b>{}</b>:\n".format(
+        if filter_list == "Текущие слова из черного списка в <b>{}</b>:\n".format(
             html.escape(chat_name),
         ):
             send_message(
                 update.effective_message,
-                "No blacklisted words in <b>{}</b>!".format(html.escape(chat_name)),
+                "Нет слов в черном списке <b>{}</b>!".format(html.escape(chat_name)),
                 parse_mode=ParseMode.HTML,
             )
             return
@@ -96,7 +96,7 @@ def add_blacklist(update, context):
         if len(to_blacklist) == 1:
             send_message(
                 update.effective_message,
-                "Added blacklist <code>{}</code> in chat: <b>{}</b>!".format(
+                "Добавлен черный список <code>{}</code> in chat: <b>{}</b>!".format(
                     html.escape(to_blacklist[0]),
                     html.escape(chat_name),
                 ),
@@ -116,7 +116,7 @@ def add_blacklist(update, context):
     else:
         send_message(
             update.effective_message,
-            "Tell me which words you would like to add in blacklist.",
+            "Скажите, какие слова вы бы хотели добавить в черный список.",
         )
 
 
@@ -195,7 +195,7 @@ def unblacklist(update, context):
     else:
         send_message(
             update.effective_message,
-            "Tell me which words you would like to remove from blacklist!",
+            "Скажите, какие слова вы бы хотели удалить из черного списка!",
         )
 
 
@@ -217,7 +217,7 @@ def blacklist_mode(update, context):
         if update.effective_message.chat.type == "private":
             send_message(
                 update.effective_message,
-                "This command can be only used in group not in PM",
+                "Эту команду можно использовать только в группе, а не в личке.",
             )
             return ""
         chat = update.effective_chat
@@ -276,16 +276,16 @@ def blacklist_mode(update, context):
         else:
             send_message(
                 update.effective_message,
-                "I only understand: off/del/warn/ban/kick/mute/tban/tmute!",
+                "Я только понимаю: off/del/warn/ban/kick/mute/tban/tmute!",
             )
             return ""
         if conn:
-            text = "Changed blacklist mode: `{}` in *{}*!".format(
+            text = "Изменен мод черного списка: `{}` in *{}*!".format(
                 settypeblacklist,
                 chat_name,
             )
         else:
-            text = "Changed blacklist mode: `{}`!".format(settypeblacklist)
+            text = "Изменен режим черного списка: `{}`!".format(settypeblacklist)
         send_message(update.effective_message, text, parse_mode="markdown")
         return (
             "<b>{}:</b>\n"
@@ -454,27 +454,27 @@ __mod_name__ = "Blacklists"
 
 __help__ = """
 
-Blacklists are used to stop certain triggers from being said in a group. Any time the trigger is mentioned, the message will immediately be deleted. A good combo is sometimes to pair this up with warn filters!
+Черные списки используются для того, чтобы определенные слова не произносились в группе. Каждый раз, когда упоминается запретное слово, сообщение немедленно удаляется. Иногда неплохо сочетать это с предупреждением.
 
-*NOTE*: Blacklists do not affect group admins.
+*ПРИМЕЧАНИЕ*: черные списки не влияют на администраторов групп.
 
-❂ /blacklist*:* View the current blacklisted words.
+❂ /blacklist*:* Просмотр слов, занесенных в текущий черный список.
 
 Admin only:
-❂ /addblacklist <triggers>*:* Add a trigger to the blacklist. Each line is considered one trigger, so using different lines will allow you to add multiple triggers.
-❂ /unblacklist <triggers>*:* Remove triggers from the blacklist. Same newline logic applies here, so you can remove multiple triggers at once.
-❂ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>*:* Action to perform when someone sends blacklisted words.
+❂ /addblacklist <triggers>*:* Добавить слово в черный список. Каждая строка считается одним словом, поэтому использование разных строк позволит вам добавить несколько слов.
+❂ /unblacklist <triggers>*:* Удаляет слово из черного списка. Здесь применяется та же логика новой строки, поэтому вы можете удалить сразу несколько слов.
+❂ /blacklistmode <off/del/warn/ban/kick/mute/tban/tmute>*:* Действие, которое следует выполнить, когда кто-то отправляет слова из черного списка.
 
-Blacklist sticker is used to stop certain stickers. Whenever a sticker is sent, the message will be deleted immediately.
-*NOTE:* Blacklist stickers do not affect the group admin
-❂ • /blsticker*:* See current blacklisted sticker
+Стикер из черного списка используется для блокировки определенных стикеров. Как только стикер будет отправлен, сообщение будет немедленно удалено.
+*ПРИМЕЧАНИЕ:* Стикеры из черного списка не влияют на администратора группы.
+❂ • /blsticker*:* Посмотреть текущий стикер в черном списке
 *Only admin:*
-❂ /addblsticker <sticker link>*:* Add the sticker trigger to the black list. Can be added via reply sticker
-❂ /unblsticker <sticker link>*:* Remove triggers from blacklist. The same newline logic applies here, so you can delete multiple triggers at once
-❂ /rmblsticker <sticker link>*:* Same as above
-❂ /blstickermode <delete/ban/tban/mute/tmute>*:* sets up a default action on what to do if users use blacklisted stickers
-Note:
-❂ <sticker link> can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message
+❂ /addblsticker <sticker link>*:* Добавить стикер в черный список.
+❂ /unblsticker <sticker link>*:* Удалить стикер из черного списка. Здесь применяется та же логика новой строки, поэтому вы можете удалить сразу несколько стикеров.
+❂ /rmblsticker <sticker link>*:* То же, что и выше
+❂ /blstickermode <delete/ban/tban/mute/tmute>*:* устанавливает действие по умолчанию, что делать, если пользователи используют стикеры из черного списка
+Примечание:
+❂ <sticker link> может быть `https://t.me/addstickers/<sticker>` или просто `<sticker>` или ответьте на стикер
 
 """
 BLACKLIST_HANDLER = DisableAbleCommandHandler(
