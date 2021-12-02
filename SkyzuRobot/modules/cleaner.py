@@ -215,17 +215,17 @@ def bluetext_ignore_list(update: Update, context: CallbackContext):
 
 
 __help__ = """
- Blue text cleaner removed any made up commands that people send in your chat.
+ Очиститель синего текста удалил все выдуманные команды, которые люди отправляли в ваш чат.
 
-❂ • /cleanblue <on/off/yes/no>*:* clean commands after sending
-❂ • /ignoreblue <word>*:* prevent auto cleaning of the command
-❂ • /unignoreblue <word>*:* remove prevent auto cleaning of the command
-❂ • /listblue*:* list currently whitelisted commands
+❂ • /cleanblue <on/off/yes/no>*:* чистить команды после отправки
+❂ • /ignoreblue <word>*:* запретить автоматическую очистку команды
+❂ • /unignoreblue <word>*:* удалить запретить автоматическую очистку команды
+❂ • /listblue*:* список команд из белого списка
 
- *Following are Disasters only commands, admins cannot use these:*
+ *Ниже приведены команды только для бедствий, администраторы не могут их использовать:*
 
-❂ • /gignoreblue <word>*:* globally ignorea bluetext cleaning of saved word across Saitama.
-❂ • /ungignoreblue <word>*:* remove said command from global cleaning list
+❂ • /gignoreblue <word>*:* глобально игнорировать чистку синего текста сохраненного слова в Сайтаме.
+❂ • /ungignoreblue <word>*:* удалить указанную команду из глобального списка очистки
 """
 
 SET_CLEAN_BLUE_TEXT_HANDLER = CommandHandler(
