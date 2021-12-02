@@ -69,7 +69,7 @@ def list_handlers(update, context):
 
     if not all_handlers:
         send_message(
-            update.effective_message, "No filters saved in {}!".format(chat_name)
+            update.effective_message, "Нет фильтров, сохраненных в {}!".format(chat_name)
         )
         return
 
@@ -117,7 +117,7 @@ def filters(update, context):
     if not msg.reply_to_message and len(args) < 2:
         send_message(
             update.effective_message,
-            "Please provide keyboard keyword for this filter to reply with!",
+            "Укажите ключевое слово клавиатуры, чтобы этот фильтр отвечал!",
         )
         return
 
@@ -155,7 +155,7 @@ def filters(update, context):
         if not text:
             send_message(
                 update.effective_message,
-                "There is no note message - You can't JUST have buttons, you need a message to go with it!",
+                "Нет сообщения-заметки - у вас не может быть ПРОСТО кнопки, вам нужно сообщение, чтобы добавить его!",
             )
             return
 
@@ -177,7 +177,7 @@ def filters(update, context):
     elif not text and not file_type:
         send_message(
             update.effective_message,
-            "Please provide keyword for this filter reply with!",
+            "Укажите ключевое слово для этого ответа фильтра с помощью!",
         )
         return
 
@@ -198,7 +198,7 @@ def filters(update, context):
         if (msg.reply_to_message.text or msg.reply_to_message.caption) and not text:
             send_message(
                 update.effective_message,
-                "There is no note message - You can't JUST have buttons, you need a message to go with it!",
+                "Нет сообщения-заметки - у вас не может быть ПРОСТО кнопки, вам нужно сообщение, чтобы добавить его!",
             )
             return
 
@@ -213,7 +213,7 @@ def filters(update, context):
     if add is True:
         send_message(
             update.effective_message,
-            "Saved filter '{}' in *{}*!".format(keyword, chat_name),
+            "Сохраненный фильтр '{}' in *{}*!".format(keyword, chat_name),
             parse_mode=telegram.ParseMode.MARKDOWN,
         )
     raise DispatcherHandlerStop
@@ -260,7 +260,7 @@ def stop_filter(update, context):
 
     send_message(
         update.effective_message,
-        "That's not a filter - Click: /filters to get currently active filters.",
+        "Это не фильтр - Нажмите: /filters чтобы получить текущие активные фильтры.",
     )
 
 
@@ -607,14 +607,13 @@ def __chat_settings__(chat_id, user_id):
 
 
 __help__ = """
-❂ /filters*:* List all active filters saved in the chat.
-*Admin only:*
-❂ /filter <keyword> <reply message>*:* Add a filter to this chat. The bot will now reply that message whenever 'keyword'\
-is mentioned. If you reply to a sticker with a keyword, the bot will reply with that sticker. NOTE: all filter \
-keywords are in lowercase. If you want your keyword to be a sentence, use quotes. eg: /filter "hey there" How you \
-doin?
- Separate diff replies by `%%%` to get random replies
- *Example:* 
+❂ /filters*:* Список всех активных фильтров, сохраненных в чате.
+*Только администратор:*
+❂ /filter <keyword> <reply message>*:* Добавьте фильтр в этот чат. Теперь бот будет отвечать на это сообщение всякий раз, когда 'ключевое слово' \
+упомянуто. Если вы ответите стикир с ключевым словом, бот ответит этом стикером. ПРИМЕЧАНИЕ: все фильтры \
+
+ Отдельные ответы на различие от `%%%` получать случайные ответы
+ *Пример:* 
  `/filter "filtername"
  Reply 1
  %%%
@@ -622,13 +621,13 @@ doin?
  %%%
  Reply 3`
 
-❂ /stop <filter keyword>*:* Stop that filter.
+❂ /stop <filter keyword>*:* Остановите этот фильтр.
 
-*Chat creator only:*
+*Только создатель чата:*
 
-❂ /removeallfilters*:* Remove all chat filters at once.
-*Note*: Filters also support markdown formatters like: {first}, {last} etc.. and buttons.
-Check /markdownhelp to know more!
+❂ /removeallfilters*:* Удалите сразу все фильтры чата.
+*Примечание*: фильтры также поддерживают такие средства форматирования разметки, как: {first}, {last} и т. Д. И кнопки.
+Проверьте /markdownhelp, чтобы узнать больше!
 """
 
 __mod_name__ = "Filters"
