@@ -44,10 +44,10 @@ def mediainfo(media):
 
 @register(pattern="^/logo ?(.*)")
 async def logo_gen(event):
-    xx = await event.reply("`Preparing your logo...`")
+    xx = await event.reply("`Подготовка вашего логотипа...`")
     name = event.pattern_match.group(1)
     if not name:
-        await xx.edit("`Provide some text to draw!\nExample: /logo <your name>!`")
+        await xx.edit("`Предоставьте текст для рисования!\nExample: /logo <your name>!`")
         return
     bg_, font_ = "", ""
     if event.reply_to_msg_id:
@@ -113,7 +113,7 @@ async def logo_gen(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Skyzu Robot](https://t.me/SkyzuRobot)",
+            caption="Logo by [BORZ](https://t.me/islam95_bot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -127,10 +127,10 @@ async def logo_gen(event):
 
 @register(pattern="^/wlogo ?(.*)")
 async def logo_(event):
-    xx = await event.reply("`Preparing your logo...`")
+    xx = await event.reply("`Подготовка вашего логотипа...`")
     name = event.pattern_match.group(1)
     if not name:
-        await xx.edit("`Provide some text to draw!\nExample: /wlogo <your name>!`")
+        await xx.edit("`Предоставьте текст для рисования!\nExample: /wlogo <your name>!`")
         return
     bg_, font_ = "", ""
     if event.reply_to_msg_id:
@@ -196,7 +196,7 @@ async def logo_(event):
         await tbot.send_file(
             event.chat_id,
             file=flnme,
-            caption="Logo by [Skyzu Robot](https://t.me/SkyzuRobot)",
+            caption="Logo by [BORZ](https://t.me/islam95_bot)",
             force_document=False,
         )
         os.remove(flnme)
@@ -210,12 +210,12 @@ async def logo_(event):
 
 __mod_name__ = "Logomaker"
 
-__help__ = """ This is help menu for logomaker
+__help__ = """ Это меню помощи для logomaker
 
-❂ /logo <text/name> - Create a logo with random view.
-❂ /wlogo <text/name> - Create a logo with wide view only.
+❂ /logo <text/name> - Создать логотип со случайным просмотром.
+❂ /wlogo <text/name> - Создайте логотип только с широким обзором.
 
- Image Editor :
+ Редактор изображений:
 
-❂  /edit <reply photo> - to edit image.
+❂  /edit <reply photo> - редактировать изображение.
 """
