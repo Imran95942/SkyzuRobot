@@ -57,17 +57,17 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("Skyzu AI Already Activated In This Chat")
+            await lel.edit("BORZ AI Already Activated In This Chat")
             return
-        await lel.edit(f"Skyzu AI Actived by {message.from_user.mention()} for users in {message.chat.title}")
+        await lel.edit(f"BORZ AI Actived by {message.from_user.mention()} for users in {message.chat.title}")
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await edit_or_reply(message, "`Processing...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("Skyzu AI Was Not Activated In This Chat")
+            await lel.edit("BORZ AI Was Not Activated In This Chat")
             return
-        await lel.edit(f"Skyzu AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
+        await lel.edit(f"BORZ AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
 
     elif status == "EN" or status == "en" or status == "english":
         if not chat_id in en_chats:
@@ -106,43 +106,43 @@ async def hmm(client, message):
         message.continue_propagation()
     if chat_id in en_chats:
         test = msg
-        test = test.replace("Skyzu", "Aco")
-        test = test.replace("Skyzu", "Aco")
-        test = test.replace("My god is @skyzu", "I'm a Christian")
+        test = test.replace("BORZ", "Aco")
+        test = test.replace("BORZ", "Aco")
+        test = test.replace("мой Создатель @isIam07", "I'm a Чеченец")
         test = test.replace("16", "9")
-        test = test.replace("@skyzu is my husband.", "I'm single.")
-        test = test.replace("My husband is @skyzu", "I'm single.")
-        test = test.replace("@skyzusupport", "Skyzubot.ai")
-        test = test.replace("I live in @skyzusupport.", "I live in San Francisco, California.")
-        test = test.replace("I was created by @skyzu", "I made myself")
+        test = test.replace("@isIam07 мой Разработчик.", "У меня никого нет.")
+        test = test.replace("меня разработал @isIam07", "I'm single.")
+        test = test.replace("@isIam07", "BORZ.ai")
+        test = test.replace("Меня разработал @isIam07.", "I live in San Francisco, California.")
+        test = test.replace("I was created by @isIam07", "I made myself")
         test = test.replace(
-            "Hello there I am Skyzu...nice to meet u",
+            "Hello there I am BORZ...nice to meet u",
             "Hi, my friend! Do you want me to tell you a joke?")
-        test = test.replace("@skyzu is my owner", "Have the control right.")
+        test = test.replace("@isIam07 is my owner", "Have the control right.")
         test = test.replace(
-            "Hi, My name is Skyzu Nice to meet you.",
+            "Hi, My name is BORZ Nice to meet you.",
             "Hi, my friend, what can I do for you today?")
         response = await lunaQuery(
             test, message.from_user.id if message.from_user else 0
         )
-        response = response.replace("Aco", "Skyzu")
-        response = response.replace("aco", "Skyzu")
-        response = response.replace("Luna", "Skyzu")
-        response = response.replace("luna", "Skyzu")
-        response = response.replace("I'm a Christian", "My god is @skyzu")
+        response = response.replace("Aco", "BORZ")
+        response = response.replace("aco", "BORZ")
+        response = response.replace("Luna", "BORZ")
+        response = response.replace("luna", "BORZ")
+        response = response.replace("I'm a Чеченец", "меня разработал @isIam07")
         response = response.replace("9", "16")
-        response = response.replace("I'm married to my job.", "I'm married with @excrybaby")
-        response = response.replace("I'm single.", "My husband is @skyzu")
-        response = response.replace("Skyzubot.ai", "@skyzusupport")
-        response = response.replace("I live in San Francisco, California.", "I live in @skyzusupport.")
-        response = response.replace("I made myself", "I was Created by @skyzu")
+        response = response.replace("Нохчи ву.", "Мой Создатель @isIam07")
+        response = response.replace("I'm single.", "Мой разработчик @isIam07")
+        response = response.replace("BORZ.ai", "@isIam07")
+        response = response.replace("I live in San Francisco, California.", "I live in @isIam07.")
+        response = response.replace("I made myself", "I was Created by @isIam07")
         response = response.replace(
                 "Hi, my friend! Do you want me to tell you a joke?",
-                "Hello there I am Skyzu...nice to meet u")
-        response = response.replace("Have the control right.", "@skyzu is my owner.")
+                "Hello there I am BORZ...nice to meet u")
+        response = response.replace("Have the control right.", "@isIam07 is my owner.")
         response = response.replace(
                 "Hi, my friend, what can I do for you today?",
-                "Hi, My name is Skyzu Nice to meet you")
+                "Hi, My name is BORZ Nice to meet you")
 
         pro = response
         try:
