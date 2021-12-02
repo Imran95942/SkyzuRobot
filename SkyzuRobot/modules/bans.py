@@ -62,14 +62,14 @@ def ban(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("⚠️ User not found.")
+        message.reply_text("⚠️ Пользователь не найден.")
         return log_message
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message != "User not found":
+        if excp.message != "Пользователь не найден":
             raise
-        message.reply_text("Can't seem to find this person.")
+        message.reply_text("Кажется, не могу найти этого пользователя.")
         return log_message
     if user_id == bot.id:
         message.reply_text("Oh yeah, ban myself, noob!")
@@ -77,25 +77,25 @@ def ban(update: Update, context: CallbackContext) -> str:
 
     if is_user_ban_protected(chat, user_id, member) and user not in DEV_USERS:
         if user_id == OWNER_ID:
-            message.reply_text("Trying to put me against a King huh?")
+            message.reply_text("Пытаетесь выставить меня против Султана, да?")
         elif user_id in DEV_USERS:
-            message.reply_text("I can't act against our Prince.")
+            message.reply_text("Я не могу действовать против нашего Шехзаде.")
         elif user_id in DRAGONS:
             message.reply_text(
-                "Fighting this Emperor here will put user lives at risk."
+                "Сражение с этим Императором здесь поставит под угрозу жизни пользователей."
             )
         elif user_id in DEMONS:
             message.reply_text(
-                "Bring an order from Captain to fight a Assasin servant."
+                "Принесите приказ капитана сразиться со слугой-убийцей."
             )
         elif user_id in TIGERS:
             message.reply_text(
                 "Bring an order from Soldier to fight a Lancer servant."
             )
         elif user_id in WOLVES:
-            message.reply_text("Trader access make them ban immune!")
+            message.reply_text("Невозможно забанить модератора.")
         else:
-            message.reply_text("⚠️ Cannot banned admin.")
+            message.reply_text("⚠️ Невозможно забанить админа.")
         return log_message
     if message.text.startswith("/s"):
         silent = True
@@ -146,7 +146,7 @@ def ban(update: Update, context: CallbackContext) -> str:
         return log
 
     except BadRequest as excp:
-        if excp.message == "Reply message not found":
+        if excp.message == "Ответное сообщение не найдено":
             # Do not reply
             if silent:
                 return log
@@ -181,26 +181,26 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("⚠️ User not found.")
+        message.reply_text("⚠️ Пользователь не найден.")
         return log_message
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message != "User not found":
+        if excp.message != "Пользователь не найден":
             raise
-        message.reply_text("I can't seem to find this user.")
+        message.reply_text("Я не могу найти этого пользователя.")
         return log_message
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you crazy?")
+        message.reply_text("Я не собираюсь ЗАБАНАТЬ себя, ты с ума сошел?")
         return log_message
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I don't feel like it.")
+        message.reply_text("Я не чувствую.")
         return log_message
 
     if not reason:
-        message.reply_text("You haven't specified a time to ban this user for!")
+        message.reply_text("Вы не указали время, на которое нужно заблокировать этого пользователя!")
         return log_message
 
     split_reason = reason.split(None, 1)
@@ -252,7 +252,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
         return log
 
     except BadRequest as excp:
-        if excp.message == "Reply message not found":
+        if excp.message == "Ответное сообщение не найдено":
             # Do not reply
             message.reply_text(
                 f"{mention_html(member.user.id, html.escape(member.user.first_name))} [<code>{member.user.id}</code>] banned for {time_val}.", quote=False
@@ -291,7 +291,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
             if not is_user_admin(chat, int(user.id)):
                 bot.answer_callback_query(
                     query.id,
-                    text="⚠️ You don't have enough rights to unmute people",
+                    text="⚠️ У вас недостаточно прав, чтобы разблокировать пользователей",
                     show_alert=True,
                 )
                 return ""
@@ -316,7 +316,7 @@ def unbanb_btn(update: Update, context: CallbackContext) -> str:
         if not is_user_admin(chat, int(user.id)):
             bot.answer_callback_query(
                 query.id,
-                text="⚠️ You don't have enough rights to delete this message.",
+                text="⚠️ У вас недостаточно прав для удаления этого сообщения.",
                 show_alert=True,
             )
             return ""
@@ -340,19 +340,19 @@ def punch(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("⚠️ User not found")
+        message.reply_text("⚠️ Пользователь не найден")
         return log_message
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message != "User not found":
+        if excp.message != "Пользователь не найден":
             raise
 
-        message.reply_text("⚠️ I can't seem to find this user.")
+        message.reply_text("⚠️ Я не могу найти этого пользователя.")
         return log_message
     if user_id == bot.id:
-        message.reply_text("Yeahhh I'm not gonna do that.")
+        message.reply_text("Да я не буду этого делать.")
         return log_message
 
     if is_user_ban_protected(chat, user_id):
@@ -379,7 +379,7 @@ def punch(update: Update, context: CallbackContext) -> str:
         return log
 
     else:
-        message.reply_text("⚠️ Well damn, I can't punch that user.")
+        message.reply_text("⚠️ Черт возьми, я не могу удалить этого пользователя.")
 
     return log_message
 
@@ -417,22 +417,22 @@ def unban(update: Update, context: CallbackContext) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("⚠️ User not found.")
+        message.reply_text("⚠️ Пользователь не найден.")
         return log_message
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
-        if excp.message != "User not found":
+        if excp.message != "Пользователь не найден":
             raise
-        message.reply_text("I can't seem to find this user.")
+        message.reply_text("Я не могу найти этого пользователя.")
         return log_message
     if user_id == bot.id:
         message.reply_text("How would I unban myself if I wasn't here...?")
         return log_message
 
     if is_user_in_chat(chat, user_id):
-        message.reply_text(f"⚠️ User not found.")
+        message.reply_text(f"⚠️ Пользователь не найден.")
         return log_message
 
     chat.unban_member(user_id)
@@ -474,8 +474,8 @@ def selfunban(update: Update, context: CallbackContext) -> str:
     try:
         member = chat.get_member(user.id)
     except BadRequest as excp:
-        if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user.")
+        if excp.message == "Пользователь не найден":
+            message.reply_text("Я не могу найти этого пользователя.")
             return
         else:
             raise
@@ -546,23 +546,23 @@ def snipe(update: Update, context: CallbackContext):
 
 
 __help__ = """
-*User Commands:*
+*Пользовательские команды:*
 
-❂ /kickme*:* kicks the user who issued the command
+❂ /kickme*:* кикает пользователя, который дал команду
 
-*Admins only:*
+*Только администраторы:*
 
-❂ /ban <userhandle>*:* bans a user. (via handle, or reply)
-❂ /sban <userhandle>*:* Silently ban a user. Deletes command, Replied message and doesn't reply. (via handle, or reply)
-❂ /tban <userhandle> x(m/h/d)*:* bans a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unban <userhandle>*:* unbans a user. (via handle, or reply)
-❂ /kick <userhandle>*:* kicks a user out of the group, (via handle, or reply)
-❂ /mute <userhandle>*:* silences a user. Can also be used as a reply, muting the replied to user.
-❂ /tmute <userhandle> x(m/h/d)*:* mutes a user for x time. (via handle, or reply). m = minutes, h = hours, d = days.
-❂ /unmute <userhandle>*:* unmutes a user. Can also be used as a reply, muting the replied to user.
-❂ /zombies*:* searches deleted accounts
-❂ /zombies clean*:* removes deleted accounts from the group.
-❂ /snipe <chatid> <string>*:* Make me send a message to a specific chat.
+❂ /ban <userhandle>*:* Забанит пользователя в чате. <ответить на сообщение пользователя> или <упомянуть>
+❂ /sban <userhandle>*:* Забанить пользователя, не оставляя сообщения. <ответить на сообщение пользователя> или <упомянуть>
+❂ /tban <userhandle> x(m/h/d)*:* для выдачи временного бана. m = минуты, h = часы, d = дни.
+❂ /unban <userhandle>*:* снимает бан.. <ответить на сообщение пользователя> или <упомянуть>
+❂ /kick <userhandle>*:* Команда для исключения пользователей, <ответить на сообщение пользователя> или <упомянуть>
+❂ /mute <userhandle>*:* выдаёт мут участнику.
+❂ /tmute <userhandle> x(m/h/d)*:* выдаёт мут участнику на указанное время.. (ответить на сообщение пользователя). `m` = `минут`, `h` = `часы`, `d` = `дней`.
+❂ /unmute <userhandle>*:* снимает мут участнику
+❂ /zombies*:* ищет удаленные аккаунты
+❂ /zombies clean*:* удаляет удаленные аккаунты из группы.
+❂ /snipe <chatid> <string>*:* Заставьте меня отправить сообщение в конкретный чат.
 """
 
 
