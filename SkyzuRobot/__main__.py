@@ -81,12 +81,13 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-*Hello {} !*
+*Ассаламу 1алейкум {} !*
 ────────────────────────
-✪ I'm an anime theme bot designed to help manage your telegram group with a lot features.
-✪ Maintained by @skyzu ✨
+BORZ поможет модерировать ваши чаты!
+
+Добавьте бота в ваш чат и выдайте права администратора.
 ────────────────────────
-Hit the /help to see available command.
+Нажмите /help, чтобы увидеть доступные команды.
 """
 
 buttons = [
@@ -101,7 +102,7 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ​", url="https://github.com/Skyzu/SkyzuRobot"
+            text="Помощник", url="https://t.me/B0RZ7"
         ),
         InlineKeyboardButton(
             text="sᴜᴘᴘᴏʀᴛ​", url=f"https://t.me/{SUPPORT_CHAT}"
@@ -109,17 +110,17 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="➗ ᴀᴅᴅ sᴋʏᴢᴜ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➗", url="t.me/SkyzuRobot?startgroup=new"),
+            text="➗ ᴀᴅᴅ sᴋʏᴢᴜ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➗", url="t.me/islam95?startgroup=new"),
     ],
 ]
 
 HELP_STRINGS = """
-Click on the button bellow to get description about specifics command."""
+Нажмите кнопку ниже, чтобы получить описание конкретной команды.."""
 
 EMI_IMG = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
- You can support the project by contacting @skyzu \
+ You can support the project by contacting @isIam07 \
  Supporting isnt always financial! \
  Those who cannot provide monetary support are welcome to help us develop the bot at ."""
 
@@ -366,15 +367,15 @@ def Skyzu_about_callback(update, context):
     query = update.callback_query
     if query.data == "Skyzu_":
         query.message.edit_text(
-            text="๏ I'm *Skyzu*, a powerful group management bot built to help you manage your group easily."
-            "\n• I can restrict users."
-            "\n• I can greet users with customizable welcome messages and even set a group's rules."
-            "\n• I have an advanced anti-flood system."
-            "\n• I can warn users until they reach max warns, with each predefined actions such as ban, mute, kick, etc."
-            "\n• I have a note keeping system, blacklists, and even predetermined replies on certain keywords."
-            "\n• I check for admins' permissions before executing any command and more stuffs"
-            "\n\n_Skyzu's licensed under the GNU General Public License v3.0_"
-            "\n\n Click on button bellow to get basic help for SkyzuRobot.",
+            text="๏ Я *BORZ*, мощный бот для управления группами, созданный, чтобы помочь вам легко управлять своей группой.."
+            "\n• Могу ограничивать пользователей."
+            "\n• Я могу приветствовать пользователей настраиваемыми приветственными сообщениями и даже устанавливать правила группы."
+            "\n• У меня продвинутая система защиты от спама."
+            "\n• Я могу предупреждать пользователей, пока они не достигнут максимального количества предупреждений, с каждым предопределенным действием, например ban, mute, kick, etc."
+            "\n• У меня есть система ведения заметок, черные списки и даже заранее определенные ответы по определенным ключевым словам.."
+            "\n• Я проверяю права администратора перед выполнением любой команды и других вещей."
+            "\n\n_BORZ licensed under the GNU General Public License v3.0_"
+            "\n\n Click on button bellow to get basic help for BORZ.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -414,7 +415,7 @@ def Skyzu_about_callback(update, context):
     elif query.data == "Skyzu_admin":
         query.message.edit_text(
             text=f"*๏ Let's make your group bit effective now*"
-            "\nCongragulations, SkyzuRobot now ready to manage your group."
+            "\nCongragulations, BORZ now ready to manage your group."
             "\n\n*Admin Tools*"
             "\nBasic Admin tools help you to protect and powerup your group."
             "\nYou can ban members, Kick members, Promote someone as admin through commands of bot."
@@ -447,8 +448,8 @@ def Skyzu_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url="t.me/skyzusupport"),
-                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs​", url="https://t.me/ProjectSkyzu"),
+                    InlineKeyboardButton(text="sᴜᴘᴘᴏʀᴛ​", url="t.me/isIam07"),
+                    InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇs​", url="https://t.me/TeamBORZ95"),
                  ],
                  [
                     InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Skyzu_"),
@@ -462,12 +463,12 @@ def Skyzu_about_callback(update, context):
     elif query.data == "Skyzu_credit":
         query.message.edit_text(
             text=f"<b>๏ Credis for Skyzu</b>\n"
-            f"\nHere Developers Making The SkyzuRobot",
+            f"\nHere Developers Making The BORZ",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Skyzu", url="t.me/skyzu"),
+                    InlineKeyboardButton(text="BORZ", url="t.me/isIam07"),
                  ],
                  [
                     InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ​", callback_data="Skyzu_"),
@@ -788,7 +789,7 @@ def main():
         try:
             dispatcher.bot.sendMessage(
                 f"@{SUPPORT_CHAT}", 
-                f"""**Skyzu Robot Started!**
+                f"""**BORZ Started!**
 
 **Python:** `{memek()}`
 **Telegram Library:** `v{peler}`""",
