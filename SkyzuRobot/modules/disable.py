@@ -187,7 +187,7 @@ if is_module_loaded(FILENAME):
             if disabled_cmds:
                 disabled_cmds_string = ", ".join(disabled_cmds)
                 update.effective_message.reply_text(
-                    f"Disabled the uses of `{disabled_cmds_string}`",
+                    f"Отключено использование `{disabled_cmds_string}`",
                     parse_mode=ParseMode.MARKDOWN,
                 )
 
@@ -241,7 +241,7 @@ if is_module_loaded(FILENAME):
                 command_list = module.__command_list__
             except:
                 update.effective_message.reply_text(
-                    "Module does not contain command list!",
+                    "Модуль не содержит списка команд!",
                 )
                 return
 
@@ -260,7 +260,7 @@ if is_module_loaded(FILENAME):
             if enabled_cmds:
                 enabled_cmds_string = ", ".join(enabled_cmds)
                 update.effective_message.reply_text(
-                    f"Enabled the uses of `{enabled_cmds_string}`",
+                    f"Включено использование `{enabled_cmds_string}`",
                     parse_mode=ParseMode.MARKDOWN,
                 )
 
@@ -318,15 +318,15 @@ if is_module_loaded(FILENAME):
 
 
     __help__ = """
-❂ /cmds*:* check the current status of disabled commands
+❂ /cmds*:* проверить текущий статус отключенных команд
 
-*Admins only:*
+*Только админы:*
 
-❂ /enable <cmd name>*:* enable that command
-❂ /disable <cmd name>*:* disable that command
-❂ /enablemodule <module name>*:* enable all commands in that module
-❂ /disablemodule <module name>*:* disable all commands in that module
-❂ /listcmds*:* list all possible toggleable commands
+❂ /enable <cmd name>*:* включить эту команду
+❂ /disable <cmd name>*:* отключить эту команду
+❂ /enablemodule <module name>*:* включить все команды в этом модуле
+❂ /disablemodule <module name>*:* отключить все команды в этом модуле
+❂ /listcmds*:* перечислить все возможные переключаемые команды
 """
 
     DISABLE_HANDLER = CommandHandler("disable", disable, run_async=True)
