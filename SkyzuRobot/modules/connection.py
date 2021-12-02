@@ -27,18 +27,18 @@ def allow_connections(update, context) -> str:
                 sql.set_allow_connect_to_chat(chat.id, False)
                 send_message(
                     update.effective_message,
-                    "Connection has been disabled for this chat",
+                    "Подключение к этому чату отключено",
                 )
             elif var == "yes":
                 sql.set_allow_connect_to_chat(chat.id, True)
                 send_message(
                     update.effective_message,
-                    "Connection has been enabled for this chat",
+                    "Для этого чата установлено соединение",
                 )
             else:
                 send_message(
                     update.effective_message,
-                    "Please enter `yes` or `no`!",
+                    "Пожалуйста, входите `yes` or `no`!",
                     parse_mode=ParseMode.MARKDOWN,
                 )
         else:
@@ -46,19 +46,19 @@ def allow_connections(update, context) -> str:
             if get_settings:
                 send_message(
                     update.effective_message,
-                    "Connections to this group are *Allowed* for members!",
+                    "Подключения к этой группе *Разрешено* для участников!",
                     parse_mode=ParseMode.MARKDOWN,
                 )
             else:
                 send_message(
                     update.effective_message,
-                    "Connection to this group are *Not Allowed* for members!",
+                    "Подключение к этой группе *запрещено* для участников!",
                     parse_mode=ParseMode.MARKDOWN,
                 )
     else:
         send_message(
             update.effective_message,
-            "This command is for group only. Not in PM!",
+            "Эта команда предназначена только для группы. Не в личку!",
         )
 
 
@@ -144,18 +144,18 @@ def connect_chat(update, context):
             else:
                 send_message(
                     update.effective_message,
-                    "Connection to this chat is not allowed!",
+                    "Подключение к этому чату запрещено!",
                 )
         else:
             gethistory = sql.get_history_conn(user.id)
             if gethistory:
                 buttons = [
                     InlineKeyboardButton(
-                        text="❎ Close button",
+                        text="❎ Кнопка закрытия",
                         callback_data="connect_close",
                     ),
                     InlineKeyboardButton(
-                        text="🧹 Clear history",
+                        text="🧹 Чистая история",
                         callback_data="connect_clear",
                     ),
                 ]
@@ -164,7 +164,7 @@ def connect_chat(update, context):
             conn = connected(context.bot, update, chat, user.id, need_admin=False)
             if conn:
                 connectedchat = dispatcher.bot.getChat(conn)
-                text = "You are currently connected to *{}* (`{}`)".format(
+                text = "Вы в настоящее время подключены к *{}* (`{}`)".format(
                     connectedchat.title,
                     conn,
                 )
@@ -241,7 +241,7 @@ def connect_chat(update, context):
                     sql.add_history_conn(user.id, str(chat.id), chat_name)
                     context.bot.send_message(
                         update.effective_message.from_user.id,
-                        "You are connected to *{}*. \nUse `/helpconnect` to check available commands.".format(
+                        "Вы подключены к *{}*. \nUse `/helpconnect` to check available commands.".format(
                             chat_name,
                         ),
                         parse_mode="markdown",
@@ -255,7 +255,7 @@ def connect_chat(update, context):
         else:
             send_message(
                 update.effective_message,
-                "Connection to this chat is not allowed!",
+                "Подключение к этому чату запрещено!",
             )
 
 
@@ -303,7 +303,7 @@ def connected(bot: Bot, update: Update, chat, user_id, need_admin=True):
                     return conn_id
                 send_message(
                     update.effective_message,
-                    "You must be an admin in the connected group!",
+                    "Вы должны быть администратором подключенной группы!",
                 )
             else:
                 return conn_id
@@ -318,16 +318,16 @@ def connected(bot: Bot, update: Update, chat, user_id, need_admin=True):
 
 
 CONN_HELP = """
- Actions are available with connected groups:
- • View and edit Notes.
- • View and edit Filters.
- • Get invite link of chat.
- • Set and control AntiFlood settings.
- • Set and control Blacklist settings.
- • Set Locks and Unlocks in chat.
- • Enable and Disable commands in chat.
- • Export and Imports of chat backup.
- • More in future!"""
+ Доступны действия с подключенными группами:
+ • Просмотр и редактирование заметок.
+ • Просмотр и редактирование фильтров.
+ • Получить инвайт-ссылку чата.
+ • Установка и управление настройками AntiFlood.
+ • Установка и управление настройками черного списка.
+ • Установите блокировки и разблокировки в чате.
+ • Включение и отключение команд в чате.
+ • Экспорт и импорт резервной копии чата.
+ • Больше в будущем!"""
 
 
 def help_connect_chat(update, context):
@@ -403,17 +403,17 @@ def connect_button(update, context):
 __mod_name__ = "Connection"
 
 __help__ = """
-Sometimes, you just want to add some notes and filters to a group chat, but you don't want everyone to see; This is where connections come in...
-This allows you to connect to a chat's database, and add things to it without the commands appearing in chat! For obvious reasons, you need to be an admin to add things; but any member in the group can view your data.
+Иногда вы просто хотите добавить некоторые заметки и фильтры в групповой чат, но вы не хотите, чтобы все это видели; Именно здесь возникают связи...
+Это позволяет вам подключаться к базе данных чата и добавлять в нее что-либо без команд, появляющихся в чате! По очевидным причинам вам нужно быть администратором, чтобы добавлять что-либо; но любой участник группы может просматривать ваши данные.
 
-❂ /connect: Connects to chat (Can be done in a group by /connect or /connect <chat id> in PM)
-❂ /connection: List connected chats
-❂ /disconnect: Disconnect from a chat
-❂ /helpconnect: List available commands that can be used remotely
+❂ /connect: Подключается к чату (можно сделать в группе с помощью /connect или /connect <идентификатор чата> в личке)
+❂ /connection: Список подключенных чатов
+❂ /disconnect: Отключиться от чата
+❂ /helpconnect: Список доступных команд, которые можно использовать удаленно
 
 *Admin only:*
 
-❂ /allowconnect <yes/no>: allow a user to connect to a chat
+❂ /allowconnect <yes/no>: разрешить пользователю подключиться к чату
 """
 
 CONNECT_CHAT_HANDLER = CommandHandler(
