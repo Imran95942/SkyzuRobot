@@ -53,7 +53,7 @@ async def is_administrator(user_id: int, message):
 async def rm_deletedacc(show):
     con = show.pattern_match.group(1).lower()
     del_u = 0
-    del_status = "**Group clean, not found the deleted account.**"
+    del_status = "**Группа чистая, не найдены удаленные аккаунты.**"
     if con != "clean":
         kontol = await show.reply("`Searching deleted account...`")
         async for user in show.client.iter_participants(show.chat_id):
