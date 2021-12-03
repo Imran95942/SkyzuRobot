@@ -462,7 +462,7 @@ def Skyzu_about_callback(update, context):
 
     elif query.data == "Skyzu_credit":
         query.message.edit_text(
-            text=f"<b>๏ Credis for Skyzu</b>\n"
+            text=f"<b>๏ Credis for BORZ</b>\n"
             f"\nHere Developers Making The BORZ",
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
@@ -482,17 +482,17 @@ def Source_about_callback(update, context):
     query = update.callback_query
     if query.data == "source_":
         query.message.edit_text(
-            text="๏›› This advance command for Musicplayer."
-            "\n\n๏ Command for admins only."
-            "\n • `/reload` - For refreshing the adminlist."
-            "\n • `/pause` - To pause the playback."
-            "\n • `/resume` - To resuming the playback You've paused."
-            "\n • `/skip` - To skipping the player."
-            "\n • `/end` - For end the playback."
-            "\n • `/musicplayer <on/off>` - Toggle for turn ON or turn OFF the musicplayer."
-            "\n\n๏ Command for all members."
-            "\n • `/play` <query /reply audio> - Playing music via YouTube."
-            "\n • `/playlist` - To playing a playlist of groups or your personal playlist",
+            text="๏›› Команды для Musicplayer."
+            "\n\n๏ Команды только для администраторов."
+            "\n • `/reload` - Для обновления админ-листа."
+            "\n • `/pause` - Чтобы приостановить воспроизведение."
+            "\n • `/resume` - возобновить воспроизведение песни."
+            "\n • `/skip` - сыграть следующую песню."
+            "\n • `/end` - Для завершения воспроизведения."
+            "\n • `/musicplayer <on/off>` - Включите или выключите музыкальный проигрыватель.."
+            "\n\n๏ Команда для всех участников."
+            "\n • `/play` <query /reply audio> - Воспроизведение музыки через YouTube."
+            "\n • `/playlist` - Для воспроизведения плейлиста групп или вашего личного плейлиста",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
