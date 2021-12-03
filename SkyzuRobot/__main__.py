@@ -442,8 +442,8 @@ def Skyzu_about_callback(update, context):
         )
     elif query.data == "Skyzu_support":
         query.message.edit_text(
-            text="*๏ Skyzu support chats*"
-            "\nJoin My Support Group/Channel for see or report a problem on Skyzu.",
+            text="*๏ BORZ поддержка чатов*"
+            "\nПрисоединяйтесь к моей группе поддержки/каналу, чтобы увидеть или сообщить о проблеме на BORZ.",
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(
                 [
