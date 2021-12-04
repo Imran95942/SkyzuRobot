@@ -57,19 +57,19 @@ async def hmm(_, message):
         lel = await edit_or_reply(message, "`Processing...`")
         lol = add_chat(int(message.chat.id))
         if not lol:
-            await lel.edit("𝙱𝙾𝚁𝚉 AI Already Activated In This Chat")
+            await lel.edit("BORZ AI Already Activated In This Chat")
             return
-        await lel.edit(f"𝙱𝙾𝚁𝚉 AI Actived by {message.from_user.mention()} for users in {message.chat.title}")
+        await lel.edit(f"BORZ AI Actived by {message.from_user.mention()} for users in {message.chat.title}")
 
     elif status == "OFF" or status == "off" or status == "Off":
         lel = await edit_or_reply(message, "`Processing...`")
         Escobar = remove_chat(int(message.chat.id))
         if not Escobar:
-            await lel.edit("𝙱𝙾𝚁𝚉 AI Was Not Activated In This Chat")
+            await lel.edit("BORZ AI Was Not Activated In This Chat")
             return
-        await lel.edit(f"𝙱𝙾𝚁𝚉 AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
+        await lel.edit(f"BORZ AI Deactivated by {message.from_user.mention()} for users in {message.chat.title}")
 
-    elif status == "Ru" or status == "ru" or status == "russian":
+    elif status == "EN" or status == "en" or status == "english":
         if not chat_id in en_chats:
             en_chats.append(chat_id)
             await message.reply_text(f"English AI chat Enabled by {message.from_user.mention()}")
@@ -109,18 +109,18 @@ async def hmm(client, message):
         test = test.replace("BORZ", "Aco")
         test = test.replace("BORZ", "Aco")
         test = test.replace("мой Создатель @isIam07", "I'm a Чеченец")
-        test = test.replace("29", "9")
+        test = test.replace("16", "9")
         test = test.replace("@isIam07 мой Разработчик.", "У меня никого нет.")
         test = test.replace("меня разработал @isIam07", "I'm single.")
         test = test.replace("@isIam07", "BORZ.ai")
         test = test.replace("Меня разработал @isIam07.", "I live in San Francisco, California.")
         test = test.replace("I was created by @isIam07", "I made myself")
         test = test.replace(
-            "Hello there I am 𝙱𝙾𝚁𝚉...nice to meet u",
+            "Hello there I am BORZ...nice to meet u",
             "Hi, my friend! Do you want me to tell you a joke?")
         test = test.replace("@isIam07 is my owner", "Have the control right.")
         test = test.replace(
-            "Hi, My name is 𝙱𝙾𝚁𝚉 Nice to meet you.",
+            "Hi, My name is BORZ Nice to meet you.",
             "Hi, my friend, what can I do for you today?")
         response = await lunaQuery(
             test, message.from_user.id if message.from_user else 0
@@ -283,7 +283,7 @@ async def inuka(client, message):
     except:
         return
     test = rm
-    if not "ru" in lan and not lan == "":
+    if not "en" in lan and not lan == "":
         try:
             test = translator.translate(test, dest="en")
             test = test.text
@@ -375,7 +375,7 @@ async def inuka(client, message):
     except:
         return
     test = rm
-    if not "ru" in lan and not lan == "":
+    if not "en" in lan and not lan == "":
         try:
             test = translator.translate(test, dest="en")
             test = test.text
