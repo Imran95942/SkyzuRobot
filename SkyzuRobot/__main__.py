@@ -83,7 +83,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *Ассаламу 1алейкум {} !*
 ────────────────────────
-BORZ поможет модерировать ваши чаты!
+𝙱𝙾𝚁𝚉 поможет модерировать ваши чаты!
 
 Добавьте бота в ваш чат и выдайте права администратора.
 ────────────────────────
@@ -110,14 +110,14 @@ buttons = [
     ],
     [
         InlineKeyboardButton(
-            text="➗ ᴀᴅᴅ sᴋʏᴢᴜ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➗", url="t.me/islam95?startgroup=new"),
+            text="➗ ᴀᴅᴅ sᴋʏᴢᴜ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ​ ➗", url="t.me/BORZ_95_bot?startgroup=new"),
     ],
 ]
 
 HELP_STRINGS = """
 Нажмите кнопку ниже, чтобы получить описание конкретной команды.."""
 
-EMI_IMG = "https://telegra.ph/file/56811b69cbcece20bbebf.jpg"
+EMI_IMG = "https://telegra.ph/file/d8ffceb79867115a7c874.jpg"
 
 DONATE_STRING = """Heya, glad to hear you want to donate!
  You can support the project by contacting @isIam07 \
